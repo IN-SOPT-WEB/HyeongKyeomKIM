@@ -11,46 +11,175 @@ body {
   height: 100vh;
 
   margin: auto;
+
+  background-color: #f8f9fa;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  margin-top: 24px;
+
+  height: 64px;
+}
+header > h1 {
+  font-size: 24px;
 }
 
-.menu-section {
+section.menu-section {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
   width: 172px;
   height: 40px;
 }
 
+section.menu-section > img {
+  width: 24px;
+  height: 24px;
+
+  margin-right: 8px;
+}
+
+section.menu-section > button {
+  width: 80px;
+  height: 32px;
+
+  border: 0;
+  border-radius: 20px;
+
+  color: #ffffff;
+  background-color: #212529;
+
+  font-size: 16px;
+}
+
 nav {
   display: flex;
+  align-items: center;
+
+  margin-top: 24px;
+
+  height: 48px;
+
+  font-size: 18px;
+}
+
+nav > div {
+  display: flex;
+}
+
+img.nav_icon {
+  width: 24px;
+  height: 24px;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
+  gap: 32px;
+
+  margin-top: 32px;
+  padding-bottom: 32px;
 }
 
 article.article-card {
   width: 320px;
   height: 377px;
 
-  margin: 10px;
-
   border-radius: 4px;
+  background-color: white;
   box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+
+  transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+
+  cursor: pointer;
+}
+
+article.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow: rgb(0 0 0 / 8%) 0px 12px 20px 0px;
 }
 
 div.article-img-wrapper {
   width: 320px;
   height: 167px;
   overflow: hidden;
+
+  border-radius: 4px 4px 0px 0px;
 }
 
 img.article-img {
   width: 320px;
   position: relative;
   bottom: 85px;
+}
+
+div.article_text-wrapper {
+  padding: 16px;
+}
+
+.article_text-wrapper > h2 {
+  margin-bottom: 4px;
+
+  font-size: 16px;
+}
+
+.article_text-wrapper > p.article_text-content {
+  margin-bottom: 24px;
+  height: 63px;
+
+  font-size: 14px;
+}
+
+.article_text-wrapper > span {
+  font-size: 12px;
+  color: #868e96;
+}
+
+.article_detail-info {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 16px;
+
+  border-top: 1px solid #f1f3f5;
+
+  font-size: 12px;
+}
+
+.article_writer-info {
+  display: flex;
+  align-items: center;
+}
+
+.article_writer-info > img {
+  width: 24px;
+  height: 24px;
+
+  margin-right: 8px;
+
+  border-radius: 20px;
+}
+
+.article_writer-info > span {
+  color: #868e96;
+}
+
+.article_writer-info > span > b {
+  color: #212529;
+}
+
+.article_like {
+  display: flex;
+  align-items: center;
+}
+
+.article_like > img {
+  width: 12px;
+
+  margin-right: 8px;
 }
