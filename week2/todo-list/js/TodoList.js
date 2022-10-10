@@ -1,33 +1,23 @@
-const toDoInput = document.querySelector("input");
-const toDoList = document.querySelector("ul");
+const leftTodoList = document.querySelector(".left-todo-list");
+const RightTodoList = document.querySelector(".right-todo-list");
+const todoForm = document.querySelector(".new-todo");
+const todoInput = todoForm.querySelector("input");
+const todoButton = todoForm.querySelector("button");
 
-let toDos = [];
-
-toDoInput.addEventListener("submit", CreateNewTodo);
-
-function paintToDo(newTodo) {
+function handleTodoSubmit(e) {
+  e.preventDefault();
+  const newTodo = todoInput.value;
+  todoInput.value = "";
   const li = document.createElement("li");
-  li.id = newTodo.id;
-
   const span = document.createElement("span");
-  span.innerText = newTodo.text;
+  span.innerText = newTodo;
 
-  const button = document.createElement("Button");
-  button.innerText = "X";
-  button.addEventListener("click", deleteTodo);
+  const button = document.createElement("button");
+  button.innerText = "❌";
 
   li.appendChild(span);
   li.appendChild(button);
-  toDoList.appendChild(li);
+  leftTodoList.appendChild(li);
 }
 
-function deleteTodo() {}
-
-function CreateNewTodo(event) {
-  event.preventDefault();
-  const newTodo = toDoInput.value;
-  toDoInput.value = "";
-  const newTodoContent = { text: newTodo, id: Date.now() };
-  toDos.push(newTodoContent);
-  paintToDo(newTodoContent);
-}
+todoButton.addEventListener("click", handleTodoSubmit);
