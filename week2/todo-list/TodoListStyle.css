@@ -125,3 +125,7 @@ footer {
   background-color: rgb(255, 199, 153);
   width: 100%;
 }
+
+.hidden {
+  display: none;
+}
