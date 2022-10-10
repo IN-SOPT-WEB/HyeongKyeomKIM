@@ -52,6 +52,11 @@ main > section {
 
 main > .left-section {
   border-right: 2px solid black;
+  width: 100%;
+}
+
+main > .right-section {
+  width: 100%;
 }
 
 ul {
