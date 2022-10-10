@@ -1,5 +1,5 @@
 const leftTodoList = document.querySelector(".left-todo-list");
-const RightTodoList = document.querySelector(".right-todo-list");
+const rightTodoList = document.querySelector(".right-todo-list");
 const todoForm = document.querySelector(".new-todo");
 const todoInput = todoForm.querySelector("input");
 const todoButton = todoForm.querySelector("button");
