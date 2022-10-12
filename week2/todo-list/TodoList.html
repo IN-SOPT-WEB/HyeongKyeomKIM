@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="TodoListStyle.css" />
-    <title>1주차 과제 투두리스트</title>
+    <title>2주차 투두리스트.js</title>
   </head>
   <body>
     <header>투두리스트 함드가자</header>
@@ -15,26 +15,34 @@
       <button class="all-button">함께 보기</button>
     </nav>
     <main>
-      <section class="left-section" id="">
+      <section class="left__section">
         <h1>오늘 할 일</h1>
-        <ul class="left-todo-list"></ul>
-        <div class="new-todo">
-          <input type="text" />
-          <button>+</button>
-        </div>
+        <ul class="todo-list left-todos"></ul>
+        <form class="new-todo-form">
+          <input
+            class="left__input"
+            type="text"
+            placeholder="오늘 할 일을 입력하세요"
+          />
+          <button class="new-todo-button">+</button>
+        </form>
       </section>
-      <section class="right-section">
+      <section class="right__section">
         <h1>내일 할 일</h1>
-        <ul class="right-todo-list">
+        <ul class="todo-list right-todos">
           <li>
             <span>심화과제 완성하기</span>
             <button>❌</button>
           </li>
         </ul>
-        <div class="new-todo">
-          <input type="text" />
-          <button>+</button>
-        </div>
+        <form class="new-todo-form">
+          <input
+            class="right__input"
+            type="text"
+            placeholder="내일 할 일을 입력하세요"
+          />
+          <button class="new-todo-button">+</button>
+        </form>
       </section>
     </main>
     <footer></footer>

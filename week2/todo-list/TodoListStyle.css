@@ -50,11 +50,11 @@ main > section {
   padding-top: 15px;
 }
 
-main > .left-section {
+main > .left__section {
   width: 100%;
 }
 
-main > .right-section {
+main > .right__section {
   width: 100%;
 }
 
@@ -86,7 +86,7 @@ li > button {
   cursor: pointer;
 }
 
-.new-todo {
+.new-todo-form {
   position: absolute;
   top: 85%;
 
@@ -98,7 +98,7 @@ li > button {
   margin-left: 7vw;
 }
 
-.new-todo > input {
+.new-todo-form > input {
   width: 500px;
   height: 30px;
 
@@ -106,7 +106,7 @@ li > button {
   border: 1px solid black;
 }
 
-.new-todo > button {
+.new-todo-form > button {
   width: 35px;
   height: 30px;
 
