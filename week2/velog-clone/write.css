@@ -1,0 +1,14 @@
+body {
+  background-color: #f8f9fa;
+}
+
+input {
+  height: 30px;
+
+  border: none;
+}
+
+input::placeholder {
+  font-size: large;
+  font-weight: 600;
+}
