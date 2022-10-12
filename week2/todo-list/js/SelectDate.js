@@ -1,8 +1,8 @@
 const todayButton = document.querySelector(".today-button");
 const tomorrowButton = document.querySelector(".tomorrow-button");
 const allButton = document.querySelector(".all-button");
-const rightSection = document.querySelector(".right-section");
-const leftSection = document.querySelector(".left-section");
+const rightSection = document.querySelector(".right__section");
+const leftSection = document.querySelector(".left__section");
 
 const HIDDEN_CLASSNAME = "hidden";
 
