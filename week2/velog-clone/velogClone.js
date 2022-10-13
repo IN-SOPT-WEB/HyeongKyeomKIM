@@ -5,7 +5,7 @@ const HIDDEN_CLASSNAME = "hidden";
 const SELECTED_CLASSNAME = "selected";
 
 const dropDownButton = $(".nav__dropdown");
-const WriteButton = $(".header__write-button");
+const writeButton = $(".header__write-button");
 const dropDownList = $(".dropdown-list");
 const dropDownOptionAll = $$(".list");
 const articleCard = $$(".article__card");
@@ -38,7 +38,7 @@ function openModal() {
 
 dropDownButton.addEventListener("click", openDropDown);
 articleCard.forEach((item) => item.addEventListener("click", openModal));
-WriteButton.addEventListener("click", moveWritePage);
+writeButton.addEventListener("click", moveWritePage);
 dropDownOptionAll.forEach((option) =>
   option.addEventListener("click", handleDropDownOption)
 );
