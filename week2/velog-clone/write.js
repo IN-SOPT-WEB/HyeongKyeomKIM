@@ -12,7 +12,6 @@ function createTag(e) {
     newTag.innerText = e.target.value;
     newTag.addEventListener("click", deleteTag);
     tagList.appendChild(newTag);
-    console.log(e.target.value);
     e.target.value = "";
   }
 }
