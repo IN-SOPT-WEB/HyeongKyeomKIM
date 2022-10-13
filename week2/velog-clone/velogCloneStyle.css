@@ -132,7 +132,6 @@ img.nav__icon {
 
   background-color: #ffffff;
 
-  border-bottom: 1px solid #868e96;
   box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
 
   font-size: 0.875rem;
@@ -146,7 +145,6 @@ img.nav__icon {
   justify-content: center;
 
   width: 68px;
-  color: #868e96;
 }
 
 .list:hover {
@@ -266,5 +264,5 @@ div.article__text-wrapper {
 }
 
 .selected {
-  color: #5ab995;
+  color: #5aecb4;
 }
