@@ -5,6 +5,8 @@ const leftInput = $(".left__input");
 const rightInput = $(".right__input");
 const leftButton = $(".left__button");
 const rightButton = $(".right__button");
+const leftTodos = $(".left-todos");
+const rightTodos = $(".right-todos");
 
 //새로운 투두리스트 생성
 function createNewTodo(e) {
@@ -13,10 +15,10 @@ function createNewTodo(e) {
   const span = document.createElement("span");
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "❌";
+  deleteButton.addEventListener("click", deleteTodo);
 
   // 왼쪽 input 에서 이벤트 실행
   if (e.target.classList.contains("left__button")) {
-    const leftTodos = $(".left-todos");
     let leftInputValue = leftInput.value;
 
     li.classList.add("left__todo-content");
@@ -26,7 +28,6 @@ function createNewTodo(e) {
 
   // 오른쪽 input 에서 이벤트 실행
   if (e.target.classList.contains("right__button")) {
-    const rightTodos = $(".right-todos");
     let rightInputValue = rightInput.value;
 
     li.classList.add("right__todo-content");
@@ -40,7 +41,14 @@ function createNewTodo(e) {
 
 // 투두리스트 제거
 function deleteTodo(e) {
-  leftTodos.removeChild(e.currentTarget);
+  const targetParentNode = e.target.parentNode;
+
+  if (targetParentNode.classList.contains("left__todo-content")) {
+    leftTodos.removeChild(targetParentNode);
+  }
+  if (targetParentNode.classList.contains("right__todo-content")) {
+    rightTodos.removeChild(targetParentNode);
+  }
 }
 
 leftButton.addEventListener("click", createNewTodo);
