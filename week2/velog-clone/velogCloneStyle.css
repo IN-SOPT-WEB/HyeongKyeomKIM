@@ -142,11 +142,15 @@ img.nav__icon {
 }
 
 .dropdown-list > .list {
+  display: flex;
+  justify-content: center;
+
+  width: 68px;
   color: #868e96;
 }
 
-.selected {
-  color: #212529;
+.list:hover {
+  color: #5aecb4;
 }
 
 main {
@@ -259,4 +263,8 @@ div.article__text-wrapper {
 .hidden {
   display: none;
   width: 0;
+}
+
+.selected {
+  color: #5ab995;
 }
