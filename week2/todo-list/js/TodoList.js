@@ -1,61 +1,47 @@
-const $ = (selctor) => document.querySelector(selctor);
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
 
-const newTodoButton = $(".new-todo-button");
+const leftInput = $(".left__input");
+const rightInput = $(".right__input");
+const leftButton = $(".left__button");
+const rightButton = $(".right__button");
 
-function handleTodoSubmit(e) {
+//새로운 투두리스트 생성
+function createNewTodo(e) {
   e.preventDefault();
-  const leftInput = $(".left__input");
-  const rightInput = $(".right__input");
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "❌";
 
+  // 왼쪽 input 에서 이벤트 실행
   if (e.target.classList.contains("left__button")) {
-    leftInput.value = "";
+    const leftTodos = $(".left-todos");
+    let leftInputValue = leftInput.value;
 
-    const li = document.createElement("li");
-    li.innerHTML(`<span>${leftInput.value}</span><button>"❌"</button>`);
     li.classList.add("left__todo-content");
-
-    $(".left-todos").appendChild(li);
-  } else {
-    alert("내용을 입력해주세요!");
+    span.innerText = `${leftInputValue}`;
+    leftTodos.appendChild(li);
   }
 
+  // 오른쪽 input 에서 이벤트 실행
   if (e.target.classList.contains("right__button")) {
-    rightInput.value = "";
+    const rightTodos = $(".right-todos");
+    let rightInputValue = rightInput.value;
 
-    const li = docuemnt.createElement("li");
-    li.innerHTML(`<span>${rightInput.value}</span><button>"❌"</button>`);
     li.classList.add("right__todo-content");
-
-    $(".right-todos").appendChild(li);
-  } else {
-    alert("내용을 입력해주세요!");
+    span.innerText = `${rightInputValue}`;
+    rightTodos.appendChild(li);
   }
+
+  li.appendChild(span);
+  li.appendChild(deleteButton);
 }
 
-newTodoButton.addEventListener("click", handleTodoSubmit);
+// 투두리스트 제거
+function deleteTodo(e) {
+  leftTodos.removeChild(e.currentTarget);
+}
 
-// const leftTodoList = document.querySelector(".todo-list left-todos");
-// const rightTodoList = document.querySelector(".todo-list right-todos");
-
-// const todoForm = document.querySelector(".new-todo-form");
-// const todoInput = todoForm.querySelector("left__input");
-// const TodoButton = todoForm.querySelector(".new-todo-button");
-
-// function handleTodaySubmit(e) {
-//   e.preventDefault();
-//   const newTodo = todoInput.value;
-//   todoInput.value = "";
-//   const li = document.createElement("li");
-//   const span = document.createElement("span");
-//   span.innerText = newTodo;
-
-//   const button = document.createElement("button");
-//   button.innerText = "❌";
-//   // button.addEventListener("click", deleteTodo);
-
-//   li.appendChild(span);
-//   li.appendChild(button);
-//   leftTodoList.appendChild(li);
-// }
-
-// TodoButton.addEventListener("click", handleTodaySubmit);
+leftButton.addEventListener("click", createNewTodo);
+rightButton.addEventListener("click", createNewTodo);
