@@ -6,10 +6,6 @@ const leftSection = document.querySelector(".left__section");
 
 const HIDDEN_CLASSNAME = "hidden";
 
-todayButton.addEventListener("click", clickToday);
-tomorrowButton.addEventListener("click", clickTomorrow);
-allButton.addEventListener("click", clickAll);
-
 function clickToday() {
   rightSection.classList.add(HIDDEN_CLASSNAME);
   leftSection.classList.remove(HIDDEN_CLASSNAME);
@@ -24,3 +20,7 @@ function clickAll() {
   rightSection.classList.remove(HIDDEN_CLASSNAME);
   leftSection.classList.remove(HIDDEN_CLASSNAME);
 }
+
+todayButton.addEventListener("click", clickToday);
+tomorrowButton.addEventListener("click", clickTomorrow);
+allButton.addEventListener("click", clickAll);
