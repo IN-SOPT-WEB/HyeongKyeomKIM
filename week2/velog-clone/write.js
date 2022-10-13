@@ -3,7 +3,7 @@ const $$ = (selector) => document.querySelectorAll(selector);
 
 const tagList = $(".tag-list");
 const tag = $(".tag");
-const TagInput = $(".tag-input");
+const tagInput = $(".tag-input");
 
 function createTag(e) {
   if (e.keyCode == 13) {
@@ -20,4 +20,4 @@ function deleteTag(e) {
   tagList.removeChild(e.currentTarget);
 }
 
-TagInput.addEventListener("keydown", createTag);
+tagInput.addEventListener("keydown", createTag);
