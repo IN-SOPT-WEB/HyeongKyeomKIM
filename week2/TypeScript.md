@@ -8,9 +8,9 @@
 
 가장먼저 에러를 사전에 방지할 수 있다는 장점이 있다.
 
-```
+```javascript
 function sum(a, b) {
-    return a + b;
+  return a + b;
 }
 ```
 
@@ -24,16 +24,15 @@ function sum(a, b) {
 
 이를 타입스크립트에서는 타입을 지정해줌으로써 해결이 가능하다.
 
-```
+```javascript
 function sum(a: number, b: number) {
-    return a + b;
+  return a + b;
 }
 
-sum("IN" , "SOPT")
+sum("IN", "SOPT");
 // 'string' 형식의 인수는 'number' 형식의 매개 변수에 할당될 수 없습니다.
-
 ```
 
-타입스크립트에서는 위와 같이 인자에 타입을 지정해 줌으로써 <b>의도하지 않은 코드의 동작</b>을 예방할 수 있다.
+타입스크립트에서는 위와 같이 인자에 타입을 지정해 줌으로써 의도하지 않은 코드의 동작을 예방할 수 있다.
 
 ## TypeScript를 이용한 개발에서 중요한 것은 무엇이 있을까?
