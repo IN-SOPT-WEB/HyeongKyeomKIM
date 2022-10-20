@@ -13,7 +13,7 @@
       <section class="header__menu-section">
         <img src="./icons/lightmode.svg" alt="lightmode" />
         <img src="./icons/search.svg" alt="search" />
-        <button>로그인</button>
+        <button class="header__write-button">새 글 작성</button>
       </section>
     </header>
     <nav>
@@ -24,6 +24,13 @@
       <div>
         <img class="nav__icon" src="./icons/clock.svg" alt="clock" />
         <span>최신</span>
+      </div>
+      <button type="menu" class="nav__dropdown">이번 주</button>
+      <div class="dropdown-list hidden">
+        <p class="list">오늘</p>
+        <p class="list selected">이번 주</p>
+        <p class="list">이번 달</p>
+        <p class="list">올해</p>
       </div>
     </nav>
     <main>
@@ -190,4 +197,5 @@
       </article>
     </main>
   </body>
+  <script src="velogClone.js"></script>
 </html>
