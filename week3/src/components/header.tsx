@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Header() {
   return (
     <StHeaderWrapper>
-      <StHeaderTitle>당신 누구야!!</StHeaderTitle>
+      <StHeaderTitle>걸그룹 맞추기</StHeaderTitle>
     </StHeaderWrapper>
   );
 }
