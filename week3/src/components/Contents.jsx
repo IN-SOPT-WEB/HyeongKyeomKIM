@@ -7,11 +7,25 @@ function Contents() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const { src, alt, options, answer } = questionData[currentQuestion];
 
-  const QuestionHandler = (option) => {
+  const questionHandler = (option) => {
     if (answer === option) {
-      console.log("정답입니다!!");
+      console.log(currentQuestion);
+      roundHandler();
+      scoreHandler();
+      if (currentQuestion !== 4) {
+        setCurrentQuestion(currentQuestion + 1);
+      }
     } else {
       console.log("땡!!");
+    }
+  };
+
+  const roundHandler = () => {
+    if (currentQuestion === 4) {
+      console.log("끝났습니다!");
+      setCurrentQuestion(0);
+    } else {
+      console.log("다음라운드로");
     }
   };
 
@@ -20,7 +34,8 @@ function Contents() {
   };
 
   const resetGame = () => {
-    console.log("다시하자!");
+    setCurrentQuestion(0);
+    setScore(0);
   };
 
   return (
@@ -30,10 +45,10 @@ function Contents() {
         <img src={src} alt={alt} />
       </StContentsImgCard>
       <StContentsAnswer>
-        {options.map((idx, option) => (
-          <StContentsoption key={idx} onClick={() => QuestionHandler(option)}>
+        {options.map((option, idx) => (
+          <StContentsOption key={idx} onClick={() => questionHandler(option)}>
             {option}
-          </StContentsoption>
+          </StContentsOption>
         ))}
       </StContentsAnswer>
       <StContentsReset onClick={resetGame}>다시하기</StContentsReset>
@@ -50,20 +65,32 @@ const StContentsWrapper = styled.section`
   align-items: center;
 `;
 
-const StContentsScore = styled.div``;
+const StContentsScore = styled.div`
+  margin: 1rem;
+`;
 
 const StContentsImgCard = styled.div`
   width: auto;
-  height: 450px;
-  overflow: hidden;
+  height: 500px;
+  overflow-y: hidden;
 
   border-radius: 16px;
   box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+
+  & > img {
+    width: 600px;
+    height: 500px;
+  }
 `;
 
-const StContentsAnswer = styled.div``;
+const StContentsAnswer = styled.div`
+  display: flex;
+  gap: 1rem;
 
-const StContentsoption = styled.button``;
+  margin: 1rem;
+`;
+
+const StContentsOption = styled.button``;
 
 const StContentsReset = styled.section`
   cursor: pointer;
