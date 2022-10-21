@@ -3,17 +3,17 @@ import styled from "styled-components";
 
 function Header() {
   return (
-    <StHeaderWrapper>
-      <StHeaderTitle>걸그룹 맞추기</StHeaderTitle>
-    </StHeaderWrapper>
+    <HeaderWrapper>
+      <HeaderTitle>걸그룹 맞추기</HeaderTitle>
+    </HeaderWrapper>
   );
 }
 
 export default Header;
 
-const StHeaderWrapper = styled.header`
+const HeaderWrapper = styled.header`
   display: flex;
   justify-content: center;
 `;
 
-const StHeaderTitle = styled.h1``;
+const HeaderTitle = styled.h1``;
