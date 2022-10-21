@@ -1,9 +1,11 @@
-import Header from "./main/header";
-import Contents from "./main/contents";
+import Header from "./components/Header";
+import Contents from "./components/Contents";
+import GlobalStyle from "./GolbalStyle";
 
 function App() {
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Contents />
     </>
