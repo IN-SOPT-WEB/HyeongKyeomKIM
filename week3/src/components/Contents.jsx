@@ -9,7 +9,6 @@ function Contents() {
 
   const questionHandler = (option) => {
     if (answer === option) {
-      console.log(currentQuestion);
       roundHandler();
       scoreHandler();
       if (currentQuestion !== 4) {
@@ -33,7 +32,7 @@ function Contents() {
     setScore(score + 1);
   };
 
-  const resetGame = () => {
+  const resetHandler = () => {
     setCurrentQuestion(0);
     setScore(0);
   };
@@ -51,7 +50,7 @@ function Contents() {
           </StContentsOption>
         ))}
       </StContentsAnswer>
-      <StContentsReset onClick={resetGame}>다시하기</StContentsReset>
+      <StContentsReset onClick={resetHandler}>다시하기</StContentsReset>
     </StContentsWrapper>
   );
 }
