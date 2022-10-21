@@ -12,7 +12,7 @@ const questionData = [
     answer: "르세라핌",
   },
   {
-    src: "https://news.nateimg.co.kr/orgImg/sw/2021/04/12/20210412509000.jpg",
+    src: "https://thumb.mt.co.kr/06/2021/09/2021090709217299479_1.jpg/dims/optimize/",
     alt: "스테이씨",
     options: ["스테이씨", "소녀시대", "엔믹스", "케플러", "에프엑스"],
     answer: "스테이씨",
