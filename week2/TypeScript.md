@@ -24,7 +24,7 @@ function sum(a, b) {
 
 이를 타입스크립트에서는 타입을 지정해줌으로써 해결이 가능하다.
 
-```javascript
+```Typescript
 function sum(a: number, b: number) {
   return a + b;
 }
