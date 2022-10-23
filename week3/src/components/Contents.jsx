@@ -39,17 +39,28 @@ function Contents() {
 
   return (
     <StContentsWrapper>
-      <StContentsScore>{score} 점</StContentsScore>
-      <StContentsImgCard>
-        <img src={src} alt={alt} />
-      </StContentsImgCard>
-      <StContentsAnswer>
-        {options.map((option, idx) => (
-          <StContentsOption key={idx} onClick={() => questionHandler(option)}>
-            {option}
-          </StContentsOption>
-        ))}
-      </StContentsAnswer>
+      {currentQuestion === 4 ? (
+        <StContentsResult>
+          축하합니다! 문제를 모두 맞추셨습니다!
+        </StContentsResult>
+      ) : (
+        <>
+          <StContentsScore>{score} 점</StContentsScore>
+          <StContentsImgCard>
+            <img src={src} alt={alt} />
+          </StContentsImgCard>
+          <StContentsAnswer>
+            {options.map((option, idx) => (
+              <StContentsOption
+                key={idx}
+                onClick={() => questionHandler(option)}
+              >
+                {option}
+              </StContentsOption>
+            ))}
+          </StContentsAnswer>
+        </>
+      )}
       <StContentsReset onClick={resetHandler}>다시하기</StContentsReset>
     </StContentsWrapper>
   );
@@ -90,6 +101,8 @@ const StContentsAnswer = styled.div`
 `;
 
 const StContentsOption = styled.button``;
+
+const StContentsResult = styled.div``;
 
 const StContentsReset = styled.section`
   cursor: pointer;
