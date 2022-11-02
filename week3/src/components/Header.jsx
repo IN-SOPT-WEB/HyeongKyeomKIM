@@ -19,5 +19,5 @@ const StHeaderTitle = styled.h1`
   margin-top: 4rem;
   margin-bottom: 2rem;
 
-  font-size: 3rem;
+  font-size: 2rem;
 `;
