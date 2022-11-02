@@ -39,9 +39,9 @@ function Contents() {
 
   return (
     <StContentsWrapper>
-      {currentQuestion === 4 ? (
+      {score === 5 ? (
         <StContentsResult>
-          축하합니다! 문제를 모두 맞추셨습니다!
+          <span>축하합니다! 문제를 모두 맞추셨습니다!</span>
         </StContentsResult>
       ) : (
         <>
@@ -102,7 +102,18 @@ const StContentsAnswer = styled.div`
 
 const StContentsOption = styled.button``;
 
-const StContentsResult = styled.div``;
+const StContentsResult = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 600px;
+  height: 500px;
+
+  & > span {
+    font-size: 1.5rem;
+  }
+`;
 
 const StContentsReset = styled.section`
   cursor: pointer;
