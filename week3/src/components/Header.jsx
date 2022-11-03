@@ -13,11 +13,15 @@ export default Header;
 const StHeaderWrapper = styled.header`
   display: flex;
   justify-content: center;
+
+  color: #ffffff;
+  background-color: #22805d;
 `;
 
 const StHeaderTitle = styled.h1`
   margin-top: 4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 
-  font-size: 2rem;
+  font-size: 2.3rem;
+  font-weight: 600;
 `;

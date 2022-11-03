@@ -1,30 +1,33 @@
 import { useState } from "react";
 import styled from "styled-components";
 import questionData from "../models/questionData";
+import ModalPortal from "./ModalPortal";
+import Modal from "./Modal";
 
 function Contents() {
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [modalOn, setModalOn] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
   const { src, alt, options, answer } = questionData[currentQuestion];
 
   const questionHandler = (option) => {
+    handleModal();
     if (answer === option) {
+      setIsCorrect(true);
       roundHandler();
       scoreHandler();
       if (currentQuestion !== 4) {
         setCurrentQuestion(currentQuestion + 1);
       }
     } else {
-      console.log("땡!!");
+      setIsCorrect(false);
     }
   };
 
   const roundHandler = () => {
     if (currentQuestion === 4) {
-      console.log("끝났습니다!");
       setCurrentQuestion(0);
-    } else {
-      console.log("다음라운드로");
     }
   };
 
@@ -37,6 +40,10 @@ function Contents() {
     setScore(0);
   };
 
+  const handleModal = () => {
+    setModalOn(!modalOn);
+  };
+
   return (
     <StContentsWrapper>
       {score === 5 ? (
@@ -45,7 +52,7 @@ function Contents() {
         </StContentsResult>
       ) : (
         <>
-          <StContentsScore>{score} 점</StContentsScore>
+          <StContentsScore>현재 스코어 : {score} 점</StContentsScore>
           <StContentsImgCard>
             <img src={src} alt={alt} />
           </StContentsImgCard>
@@ -53,7 +60,9 @@ function Contents() {
             {options.map((option, idx) => (
               <StContentsOption
                 key={idx}
-                onClick={() => questionHandler(option)}
+                onClick={() => {
+                  questionHandler(option);
+                }}
               >
                 {option}
               </StContentsOption>
@@ -62,6 +71,9 @@ function Contents() {
         </>
       )}
       <StContentsReset onClick={resetHandler}>다시하기</StContentsReset>
+      <ModalPortal>
+        {modalOn && <Modal onClick={handleModal} isCorrect={isCorrect} />}
+      </ModalPortal>
     </StContentsWrapper>
   );
 }
@@ -77,6 +89,9 @@ const StContentsWrapper = styled.section`
 
 const StContentsScore = styled.div`
   margin: 1rem;
+
+  font-weight: 600;
+  font-size: 18px;
 `;
 
 const StContentsImgCard = styled.div`
@@ -100,7 +115,21 @@ const StContentsAnswer = styled.div`
   margin: 1rem;
 `;
 
-const StContentsOption = styled.button``;
+const StContentsOption = styled.button`
+  border: 0;
+  padding: 10px 15px;
+
+  font-weight: 600;
+  font-size: 19px;
+
+  color: #ffffff;
+  background-color: #22805d;
+
+  &:hover {
+    background-color: #32ad80;
+    cursor: pointer;
+  }
+`;
 
 const StContentsResult = styled.div`
   display: flex;
