@@ -1,12 +1,13 @@
 import Router from "./Router";
-import GlobalStyle from "../../week3/src/GolbalStyle";
+import GlobalStyle from "./GolbalStyle";
 
 function App() {
-  return;
-  <>
-    <GlobalStyle />
-    <Router />
-  </>;
+  return (
+    <>
+      <GlobalStyle />
+      <Router />
+    </>
+  );
 }
 
 export default App;

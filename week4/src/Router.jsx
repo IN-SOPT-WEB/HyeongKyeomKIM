@@ -1,4 +1,4 @@
-import { BrowserRouter, BrowsweRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Search from "./components/Search";
 
 function Router() {
@@ -6,9 +6,11 @@ function Router() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="search" element={<Search />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </BrowserRouter>
     </>
   );
 }
+
+export default Router;
