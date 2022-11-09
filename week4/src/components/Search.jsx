@@ -1,9 +1,19 @@
+import styled from "styled-components";
+import UserInfo from "./UserInfo";
+
 function Search() {
   return (
-    <>
-      <h1>안녕하세요</h1>
-    </>
+    <StSearchWrapper>
+      <UserInfo />
+    </StSearchWrapper>
   );
 }
 
 export default Search;
+
+const StSearchWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
