@@ -1,26 +1,40 @@
 import styled from "styled-components";
 
-function UserInfo() {
+function UserInfo({ userInfo }) {
+  const {
+    login,
+    name,
+    avatar_url,
+    html_url,
+    followers,
+    following,
+    public_repos,
+  } = userInfo;
+
+  const visitHandler = () => {
+    location.href = `${html_url}`;
+  };
+
   return (
     <StUserInfoWrapper>
-      <StUserImg src="https://avatars.githubusercontent.com/u/97586683?v=4" />
+      <StUserImg src={avatar_url} />
       <StUserName>
-        <h1>Siruzipsa</h1>
-        <p>시루는 사나운 고양이입니다.</p>
+        <h1>{login}</h1>
+        <p>{name}</p>
       </StUserName>
-      <StUserVisitBtn>Visit Siruzipsa</StUserVisitBtn>
+      <StUserVisitBtn onClick={visitHandler}>Visit {login}</StUserVisitBtn>
       <StUserRate>
         <StUserRateBlock>
           <p>Followers</p>
-          <span>999</span>
+          <span>{followers}</span>
         </StUserRateBlock>
         <StUserRateBlock>
           <p>Following</p>
-          <span>999</span>
+          <span>{following}</span>
         </StUserRateBlock>
         <StUserRateBlock>
           <p>Repos</p>
-          <span>999</span>
+          <span>{public_repos}</span>
         </StUserRateBlock>
       </StUserRate>
     </StUserInfoWrapper>

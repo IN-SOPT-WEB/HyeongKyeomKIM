@@ -1,11 +1,9 @@
-import Router from "./Router";
 import GlobalStyle from "./common/GolbalStyle";
-import Header from "./common/Header";
+import Router from "./Router";
 
 function App() {
   return (
     <>
-      <Header />
       <GlobalStyle />
       <Router />
     </>
