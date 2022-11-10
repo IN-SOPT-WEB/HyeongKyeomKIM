@@ -24,7 +24,6 @@ function Search() {
         public_repos: userData.public_repos,
         html_url: userData.html_url,
       });
-      console.log(userData);
     }
   };
 
