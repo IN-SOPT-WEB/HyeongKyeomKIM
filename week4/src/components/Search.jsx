@@ -15,16 +15,21 @@ function Search() {
       navigate(`/search/${e.target.value}`);
       setIsSearch(true);
       setUserInfo({
-        ...userData,
         login: userData.login,
-        name: userData.username,
+        name: userData.name,
         avatar_url: userData.avatar_url,
         followers: userData.followers,
         following: userData.following,
         public_repos: userData.public_repos,
         html_url: userData.html_url,
       });
+      e.target.value = "";
     }
+  };
+
+  const closeHandler = () => {
+    navigate(`/search`);
+    setIsSearch(false);
   };
 
   return (
@@ -35,7 +40,12 @@ function Search() {
         isSearch={isSearch}
         placeholder="Search User..."
       />
-      {isSearch && <UserInfo userInfo={userInfo} />}
+      {isSearch && (
+        <>
+          <UserInfo userInfo={userInfo} />
+          <StCloseBtn onClick={closeHandler}>❌</StCloseBtn>
+        </>
+      )}
     </StSearchWrapper>
   );
 }
@@ -78,4 +88,14 @@ const StSearchInput = styled.input`
 
     color: #8b949e;
   }
+`;
+
+const StCloseBtn = styled.button`
+  position: absolute;
+  top: 25%;
+  left: 134%;
+
+  background-color: #0d1117;
+
+  font-size: large;
 `;
