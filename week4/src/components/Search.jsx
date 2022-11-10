@@ -6,6 +6,8 @@ import { getUserInfo } from "../api/axios";
 
 function Search() {
   const navigate = useNavigate();
+  const [history, setHistory] = useState([]);
+  const [openHistory, setOpenHistory] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [userInfo, setUserInfo] = useState();
 
@@ -14,6 +16,7 @@ function Search() {
       const userData = await getUserInfo(e.target.value);
       navigate(`/search/${e.target.value}`);
       setIsSearch(true);
+      setOpenHistory(false);
       setUserInfo({
         login: userData.login,
         name: userData.name,
@@ -27,6 +30,22 @@ function Search() {
     }
   };
 
+  const historySearchHandler = async (e) => {
+    const userData = await getUserInfo(e.target.innerText);
+    navigate(`/search/${e.target.innerText}`);
+    setIsSearch(true);
+    setOpenHistory(false);
+    setUserInfo({
+      login: userData.login,
+      name: userData.name,
+      avatar_url: userData.avatar_url,
+      followers: userData.followers,
+      following: userData.following,
+      public_repos: userData.public_repos,
+      html_url: userData.html_url,
+    });
+  };
+
   const closeHandler = () => {
     navigate(`/search`);
     setIsSearch(false);
@@ -36,10 +55,22 @@ function Search() {
     <StSearchWrapper>
       <StSearchTitle>GitHub Searcher</StSearchTitle>
       <StSearchInput
+        onClick={() => setOpenHistory(true)}
         onKeyDown={searchHanlder}
         isSearch={isSearch}
         placeholder="Search User..."
       />
+      {openHistory && (
+        <StHistoryCard>
+          <ol>
+            <li>
+              <span onClick={historySearchHandler}>Brokyeom</span>
+              <button>❌</button>
+            </li>
+          </ol>
+          <p onClick={() => setOpenHistory(false)}>Close History</p>
+        </StHistoryCard>
+      )}
       {isSearch && (
         <>
           <UserInfo userInfo={userInfo} />
@@ -90,12 +121,67 @@ const StSearchInput = styled.input`
   }
 `;
 
+const StHistoryCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 17rem;
+
+  padding-bottom: 1rem;
+
+  width: 40rem;
+  height: auto;
+
+  background-color: #c9d1d984;
+
+  border-radius: 1rem;
+
+  font-weight: 600;
+  font-size: 1.7rem;
+
+  z-index: 1;
+
+  & > p {
+    margin-top: 1rem;
+    padding: 1rem;
+
+    border-radius: 2rem;
+
+    background-color: #0d1117;
+
+    color: #c9d1d9;
+
+    cursor: pointer;
+  }
+
+  & > ol > li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem;
+
+    width: 40rem;
+
+    & > span {
+      cursor: pointer;
+    }
+
+    & > button {
+      background: none;
+    }
+  }
+`;
+
 const StCloseBtn = styled.button`
   position: absolute;
   top: 25%;
   left: 134%;
 
-  background-color: #0d1117;
+  background: none;
 
   font-size: large;
 `;
