@@ -60,11 +60,11 @@ const StSearchWrapper = styled.section`
 `;
 
 const StSearchTitle = styled.h1`
-  font-weight: 600;
-  font-size: 4.3rem;
-
   margin-top: 4rem;
   margin-bottom: 2.5rem;
+
+  font-weight: 600;
+  font-size: 4.3rem;
 `;
 
 const StSearchInput = styled.input`

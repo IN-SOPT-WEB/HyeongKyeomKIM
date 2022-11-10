@@ -80,6 +80,7 @@ const StUserName = styled.article`
 
   & > p {
     color: #8b949e;
+
     font-weight: 500;
     font-size: 2.3rem;
   }
