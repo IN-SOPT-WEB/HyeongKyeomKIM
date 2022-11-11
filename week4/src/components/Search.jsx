@@ -86,13 +86,7 @@ function Search() {
             {historyArr.map((username, idx) => (
               <li key={idx}>
                 <span onClick={historySearchHandler}>{username}</span>
-                <button
-                  onClick={(idx) => {
-                    deleteHistoryHanlder(idx);
-                  }}
-                >
-                  ❌
-                </button>
+                <button onClick={deleteHistoryHanlder}>❌</button>
               </li>
             ))}
           </ol>
