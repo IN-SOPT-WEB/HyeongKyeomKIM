@@ -6,17 +6,21 @@ import { getUserInfo } from "../api/axios";
 
 function Search() {
   const navigate = useNavigate();
-  const [history, setHistory] = useState([]);
+  const [historyArr, setHistoryArr] = useState([]);
   const [openHistory, setOpenHistory] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [userInfo, setUserInfo] = useState();
 
+  // 여기 너무 하드코딩 해서 useLocation 써서 리팩터링 할게요~!~! 일단 pr 올림 ㅎㅎ
+
+  // 검색창을 통한 유저 검색 기능
   const searchHanlder = async (e) => {
     if (e.key === "Enter") {
       const userData = await getUserInfo(e.target.value);
       navigate(`/search/${e.target.value}`);
       setIsSearch(true);
       setOpenHistory(false);
+      historyArrHandler(e.target.value);
       setUserInfo({
         login: userData.login,
         name: userData.name,
@@ -26,15 +30,16 @@ function Search() {
         public_repos: userData.public_repos,
         html_url: userData.html_url,
       });
-      e.target.value = "";
     }
   };
 
+  // history 에 있는 유저 검색 기능
   const historySearchHandler = async (e) => {
     const userData = await getUserInfo(e.target.innerText);
     navigate(`/search/${e.target.innerText}`);
     setIsSearch(true);
     setOpenHistory(false);
+    historyArrHandler(e.target.innerText);
     setUserInfo({
       login: userData.login,
       name: userData.name,
@@ -46,6 +51,21 @@ function Search() {
     });
   };
 
+  // history 배열 핸들러
+  const historyArrHandler = (username) => {
+    setHistoryArr((prev) => [...prev, username]);
+  };
+
+  // history 요소 삭제
+  const deleteHistoryHanlder = (e) => {
+    setHistoryArr((usernames) =>
+      usernames.filter(
+        (username) => username !== e.target.parentNode.textContent.slice(0, -1)
+      )
+    );
+  };
+
+  // 유저 정보창 닫기
   const closeHandler = () => {
     navigate(`/search`);
     setIsSearch(false);
@@ -63,10 +83,18 @@ function Search() {
       {openHistory && (
         <StHistoryCard>
           <ol>
-            <li>
-              <span onClick={historySearchHandler}>Brokyeom</span>
-              <button>❌</button>
-            </li>
+            {historyArr.map((username, idx) => (
+              <li key={idx}>
+                <span onClick={historySearchHandler}>{username}</span>
+                <button
+                  onClick={(idx) => {
+                    deleteHistoryHanlder(idx);
+                  }}
+                >
+                  ❌
+                </button>
+              </li>
+            ))}
           </ol>
           <p onClick={() => setOpenHistory(false)}>Close History</p>
         </StHistoryCard>

@@ -11,6 +11,7 @@ function UserInfo({ userInfo }) {
     public_repos,
   } = userInfo;
 
+  // 해당 유저 깃허브로 이동
   const visitHandler = () => {
     location.href = `${html_url}`;
   };
