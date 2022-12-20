@@ -1,4 +1,11 @@
-const questionData = [
+interface QuestionDataProps {
+  src: string;
+  alt: string;
+  options: string[];
+  answer: string;
+}
+
+const questionData: QuestionDataProps[] = [
   {
     src: "https://file2.nocutnews.co.kr/newsroom/image/2022/07/23/202207231237383174_0.jpg",
     alt: "뉴진스",
