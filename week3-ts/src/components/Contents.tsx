@@ -5,13 +5,13 @@ import ModalPortal from "./ModalPortal";
 import Modal from "./Modal";
 
 function Contents() {
-  const [score, setScore] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [modalOn, setModalOn] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
+  const [score, setScore] = useState<number>(0);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [modalOn, setModalOn] = useState<boolean>(false);
+  const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const { src, alt, options, answer } = questionData[currentQuestion];
 
-  const questionHandler = (option) => {
+  const questionHandler = (option: string) => {
     handleModal();
     if (answer === option) {
       setIsCorrect(true);
