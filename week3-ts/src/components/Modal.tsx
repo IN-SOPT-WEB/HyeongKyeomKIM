@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
-function Modal({ onClick, isCorrect }) {
+interface ModalProps {
+  handleModal: () => void;
+  isCorrect: boolean;
+}
+
+function Modal(props: ModalProps) {
+  const { handleModal, isCorrect } = props;
   return (
-    <StModalContainer onClick={onClick} isCorrect={isCorrect}>
+    <StModalContainer onClick={handleModal}>
       <StModalContent>
         {isCorrect ? "정답입니다!" : "틀렸습니다ㅠ"}
       </StModalContent>

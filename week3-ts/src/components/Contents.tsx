@@ -72,7 +72,7 @@ function Contents() {
       )}
       <StContentsReset onClick={resetHandler}>다시하기</StContentsReset>
       <ModalPortal>
-        {modalOn && <Modal onClick={handleModal} isCorrect={isCorrect} />}
+        {modalOn && <Modal handleModal={handleModal} isCorrect={isCorrect} />}
       </ModalPortal>
     </StContentsWrapper>
   );
